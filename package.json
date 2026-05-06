@@ -1,0 +1,49 @@
+{
+  "name": "@lgolabs/idempotency-mcp",
+  "version": "0.2.0",
+  "description": "MCP server for the LGO Labs Idempotency API. Stripe-style idempotency keys for any AI agent tool call.",
+  "type": "module",
+  "bin": {
+    "lgolabs-idempotency-mcp": "dist/mcp.js"
+  },
+  "files": [
+    "dist/mcp.js",
+    "README.md"
+  ],
+  "license": "MIT",
+  "homepage": "https://idempotency.lgolabs.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lgolabs/idempotency-mcp"
+  },
+  "keywords": [
+    "idempotency",
+    "agents",
+    "mcp",
+    "stripe-style",
+    "lgolabs"
+  ],
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "kv:create": "wrangler kv namespace create API_KEYS",
+    "build": "tsc -p tsconfig.mcp.json && node -e \"require('fs').chmodSync('dist/mcp.js', 0o755)\"",
+    "test": "vitest run",
+    "openapi:print": "node -e \"console.log(require('fs').readFileSync('openapi.yaml','utf8'))\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "devDependencies": {
+    "@lgolabs/spine": "*",
+    "hono": "^4.6.12",
+    "zod": "^3.23.8",
+    "@cloudflare/vitest-pool-workers": "^0.5.40",
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.6.3",
+    "vitest": "~2.1.0",
+    "wrangler": "^3.90.0"
+  }
+}
