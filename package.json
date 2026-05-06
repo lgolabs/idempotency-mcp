@@ -1,6 +1,6 @@
 {
   "name": "@lgolabs/idempotency-mcp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "MCP server for the LGO Labs Idempotency API. Stripe-style idempotency keys for any AI agent tool call.",
   "type": "module",
   "bin": {
