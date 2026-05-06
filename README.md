@@ -52,7 +52,7 @@ POST /v1/derive-key → deterministic key from {operation, inputs, scope}.
 GET  /healthz       → ok
 ```
 
-Full spec: [`openapi.yaml`](./openapi.yaml).
+Full spec: [`idempotency.lgolabs.com/openapi.yaml`](https://idempotency.lgolabs.com/openapi.yaml).
 
 ## Install (MCP)
 
@@ -106,9 +106,11 @@ Any endpoint accepts an `X-PAYMENT` header instead of `Authorization`. The first
 
 | Tier | Limit | Price |
 |---|---|---|
-| Free | 500 calls / day | $0 (email-bound or x402-wallet-bound) |
+| Free | 500 calls / day | $0 (API key or x402 wallet) |
 | PAYG | beyond free tier | $0.001 per call |
 | x402 | per call, no signup | 1000 atomic micro-USDC ($0.001) per call |
+
+The fastest way to try it without any setup: use x402. Your client signs a USDC transfer on Base, retries with the signed payload, gets the result. ~200ms settlement, no signup.
 
 ## How it works
 
@@ -119,10 +121,7 @@ Any endpoint accepts an `X-PAYMENT` header instead of `Authorization`. The first
 
 ## Status
 
-v0.2 — 6 endpoints, 44 tests passing, MCP wired, SDK built, structured errors, deployable. **Not yet announced publicly.**
-
-- Day-by-day launch playbook: [`LAUNCH.md`](./LAUNCH.md)
-- Deferred roadmap (gated on customer pull): [`ROADMAP.md`](./ROADMAP.md)
+v0.2 — 6 endpoints, MCP server + TypeScript SDK published, structured errors, deployed at [idempotency.lgolabs.com](https://idempotency.lgolabs.com).
 
 ## License
 
