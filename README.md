@@ -22,8 +22,6 @@ The first call hits your API. Every subsequent call with the same key returns th
 
 ## Why this exists
 
-You can roll Redis + `SET NX` yourself in 50 lines. The product is **not running it yourself**, **MCP-native distribution**, and **pay-per-call USDC with no signup** via x402.
-
 If you're wrapping a Stripe-style retry pattern around an LLM tool call, an external HTTP webhook, or a database write — this is the cheapest way to never ship the bug twice.
 
 ## Six endpoints, two modes
